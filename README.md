@@ -1,6 +1,6 @@
 # md2rjs
 
-md2rjs is a script that quickly and easily creates a node.js presentation from  a markdown file. It does this by creating a reveal.js compatible html file and copying the reveal.js directory. These files are put into a directory named after the original markdown file.
+md2rjs is a script that quickly and easily creates a node.js presentation from  a markdown file. It does this by creating a reveal.js compatible html file and copying the reveal.js directory. Optionally, md2rjs will open the newly created presentation in your browser of choice.
 
 ---
 
@@ -28,6 +28,12 @@ This is specified in the 'html_top' and 'html_bottom' sections of the md2rjs.con
 #### Themes
 
 Reveal.js comes with a few themes by default. These are located in the reveal.js/css/theme/ directory. To change the theme just change the line ``` <link rel="stylesheet" href="reveal.js/css/theme/black.css" id="theme"> ``` under 'html_top' in md2rjs.conf to specify the desired theme. Once done all presentations will use this new theme.
+
+---
+
+### Optional Browser
+
+If you put the path of a web browser to the md2rjs.conf file under 'browser_path', md2rjs will open the created presentation using that browser. This setting is optional and you can just omit the 'browser_path' setting completely. This has only been tested with Firefox and Chromium.
 
 ---
 
@@ -77,10 +83,15 @@ By running:
 
     $ python md2rjs.py presentation.md
 
-You will get:
+This:
 
-    |-sample_presentation
-    |---reveal.js
+    |---presentation.md
+
+
+Becomes:
+
+    |---presentation.md
+    |---reveal.js/
     |---sample.html
 
 ---
@@ -93,4 +104,4 @@ Just open the new html file in your browser of choice.
 
 ## Quality Warning
 
-This is a quick script with no quality control. It does not try to fail gracefully, verify input or avoid overwriting files.
+This is a quick script with no quality control. It does not try to fail gracefully, verify input or avoid overwriting files. This script has only been tested on Linux.
